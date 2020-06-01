@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ReactMarkdown from "react-markdown";
+import {renderToString} from 'react-dom/server'
+import Highlight from "react-highlight";
 
 const Markdown = ({file}) => {
     const [data, setData] = useState('');
@@ -12,7 +14,18 @@ const Markdown = ({file}) => {
                 setData(text)
             })
     }, [file]);
-    return <ReactMarkdown source={data}/>
+    return (
+        <Highlight innerHTML={true}>
+            {renderToString(
+                <ReactMarkdown
+                    source={data}
+                    className="code-markdown"
+                    sourcePos
+                    includeNodeIndex
+                    linkTarget="_blank"/>
+            )}
+        </Highlight>
+    )
 };
 
 export default Markdown;
