@@ -2,7 +2,7 @@
   "name": "code-with-gg",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://geetesh-gupta.github.io/code-with-gg",
+  "homepage": "https://codewithgg.geeteshgupta.codes",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
     "@testing-library/jest-dom": "^4.2.4",
