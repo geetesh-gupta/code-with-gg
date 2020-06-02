@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   sidebar: {
     padding: "16px",
     paddingLeft: 0,
+    minWidth: "320px",
   },
 }));
 
