@@ -3,8 +3,13 @@
     {
       "children": [
         {
-          "name": "LCS.md",
-          "path": "codes/dp/LCS.md",
+          "name": "LongestCommonSubSequence.md",
+          "path": "codes/dp/LongestCommonSubSequence.md",
+          "type": "file"
+        },
+        {
+          "name": "LongestCommonSubString.md",
+          "path": "codes/dp/LongestCommonSubString.md",
           "type": "file"
         }
       ],
