@@ -27,14 +27,6 @@ const StyledListItem = withStyles({
   },
 })(ListItem);
 
-const StyledCollapse = withStyles({
-  root: {
-    margin: 0,
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
-})(Collapse);
-
 const StyledList = withStyles({
   root: {
     margin: 0,
@@ -69,9 +61,9 @@ export const CodeListFolder = ({ children, folderName, depth }) => {
         <ListItemText primary={folderName} />
         {isCollapseOpen ? <ExpandLess /> : <ExpandMore />}
       </StyledListItem>
-      <StyledCollapse in={isCollapseOpen} timeout="auto" unmountOnExit>
+      <Collapse in={isCollapseOpen} timeout="auto" unmountOnExit>
         {children}
-      </StyledCollapse>
+      </Collapse>
     </StyledList>
   );
 };

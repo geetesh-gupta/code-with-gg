@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import React, { useState } from "react";
 import Markdown from "./Markdown";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
 import { makeStyles } from "@material-ui/core/styles";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import FolderIcon from "@material-ui/icons/Folder";
-import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import Collapse from "@material-ui/core/Collapse";
 import CodeList from "./CodeList";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,9 +50,9 @@ function App() {
       <div className={classes.sidebar}>
         <CodeList setCurrentOpen={setFilename} />
       </div>
-      <div className={classes.code}>
+      <Container className={classes.code}>
         {filename !== "" && <Markdown file={proxyurl + baseurl + filename} />}
-      </div>
+      </Container>
     </div>
   );
 }
