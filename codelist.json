@@ -1,0 +1,19 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "name": "LCS.md",
+          "path": "codes/dp/LCS.md",
+          "type": "file"
+        }
+      ],
+      "name": "dp",
+      "path": "codes/dp",
+      "type": "folder"
+    }
+  ],
+  "name": "codes",
+  "path": "codes",
+  "type": "folder"
+}
