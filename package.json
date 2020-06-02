@@ -2,7 +2,11 @@
   "name": "code-with-gg",
   "version": "0.1.0",
   "private": true,
+  "author": "Geetesh Gupta",
+  "description": "Open-source React-based common platform for programming questions with variety of solutions.",
   "homepage": "http://codewithgg.geeteshgupta.codes/",
+  "repository": "https://github.com/geetesh-gupta/code-with-gg",
+  "readme": "https://github.com/geetesh-gupta/code-with-gg/blob/master/README.md",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -42,5 +46,14 @@
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1"
-  }
+  },
+  "keywords": [
+      "React",
+      "Programming",
+      "Coding",
+      "Common Platform",
+      "React-based Platform",
+      "Programming Solutions",
+      "Code"
+  ],
 }
