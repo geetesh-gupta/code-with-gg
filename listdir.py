@@ -33,5 +33,5 @@ if __name__ == '__main__':
 
     json_obj = json.dumps(path_hierarchy(directory), indent=2, sort_keys=True)
 
-    with open('codelist.json', 'w') as f:
+    with open('src/code_list.json', 'w') as f:
         f.write(json_obj)
