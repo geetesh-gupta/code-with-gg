@@ -18,7 +18,7 @@
   },
   "scripts": {
     "prestart": "python3 listdir.py codes",
-    "start": "export PORT=3001 && react-scripts start",
+    "start": "react-scripts start",
     "build": "python3 listdir.py codes && react-scripts build && cp ./CNAME build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
