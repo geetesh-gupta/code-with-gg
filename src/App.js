@@ -3,6 +3,7 @@ import Markdown from "./Markdown";
 import { makeStyles } from "@material-ui/core/styles";
 import CodeList from "./CodeList";
 import Container from "@material-ui/core/Container";
+import Card from "@material-ui/core/Card";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "row",
     },
+    paddingTop: "32px",
   },
   sidebar: {
     [theme.breakpoints.down("md")]: {
@@ -51,7 +53,13 @@ function App() {
         <CodeList setCurrentOpen={setFilename} />
       </div>
       <Container className={classes.code}>
-        {filename !== "" && <Markdown file={proxyurl + baseurl + filename} />}
+        <Card style={{ padding: "16px" }}>
+          {filename !== "" ? (
+            <Markdown file={proxyurl + baseurl + filename} />
+          ) : (
+            "Use the sidebar to open a code"
+          )}
+        </Card>
       </Container>
     </div>
   );
