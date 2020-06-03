@@ -3,6 +3,18 @@
     {
       "children": [
         {
+          "name": "MajorityElement.md",
+          "path": "codes/array/MajorityElement.md",
+          "type": "file"
+        }
+      ],
+      "name": "array",
+      "path": "codes/array",
+      "type": "folder"
+    },
+    {
+      "children": [
+        {
           "name": "LongestCommonSubSequence.md",
           "path": "codes/dp/LongestCommonSubSequence.md",
           "type": "file"
