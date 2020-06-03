@@ -3,8 +3,8 @@
     {
       "children": [
         {
-          "name": "MajorityElement.md",
-          "path": "codes/array/MajorityElement.md",
+          "name": "MajorityElementHalf.md",
+          "path": "codes/array/MajorityElementHalf.md",
           "type": "file"
         }
       ],
