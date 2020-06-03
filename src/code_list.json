@@ -6,6 +6,16 @@
           "name": "MajorityElementHalf.md",
           "path": "codes/array/MajorityElementHalf.md",
           "type": "file"
+        },
+        {
+          "name": "MajorityElementKth.md",
+          "path": "codes/array/MajorityElementKth.md",
+          "type": "file"
+        },
+        {
+          "name": "MajorityElementOneThird.md",
+          "path": "codes/array/MajorityElementOneThird.md",
+          "type": "file"
         }
       ],
       "name": "array",
