@@ -4,7 +4,7 @@ var urlsToCache = [
   "/manifest.json",
   "/worker.js",
   "/maskable_icon.png",
-  "/static/css",
+  "/static/css/*.css",
 ];
 
 // Install a service worker
