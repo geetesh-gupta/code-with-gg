@@ -1,4 +1,4 @@
-# Coin Change 2
+# Coin Change 2 - [Leetcode(#518)](https://leetcode.com/problems/coin-change-2/)
 
 ### Question
 
@@ -22,7 +22,8 @@ Explanation : `[1, 1, 1, 1, 1], [1, 1, 1, 2], [1, 2, 2], [5]`
 
 ### DP Concept: Space-Complexity - O(N\*M)
 
-- We will assign coins(+ 0) as rows and 0 <= x <= amount on columns.
+- We will assign coins as rows and 0 <= x <= amount on columns.
+- Also, we will have an extra row of coin value "0".
 - At every step we have a choice to include a particular coin or not.
 - Hence total possible ways will be the summation of both.
 - If we include the coin, reduce the amount by the value of coin.
@@ -30,26 +31,59 @@ Explanation : `[1, 1, 1, 1, 1], [1, 1, 1, 2], [1, 2, 2], [5]`
 
 `Note: We can include the coin only if the value of coin is less than the amount.`
 
+### Pseudocode
+```i stands for coin array iterator and j for [0,amount]```
+
 Base Condition :
-
-Input: amount = 0
-Output: 1
-
-Input: coin = 0
+```
+Input: i = 0 
 Output: 0
 
-```
-    dp[0][j] = 0    // for each j in [0,amount]
-    dp[i][0] = 1    // for each i in coins array
-```
+Input: j = 0
+Output: 1
 
-DP Relation
+Input: i = 0 and j = 0
+Output: 1
+```
+Choice Diagram
 
 ```
-    dp[i][j] = dp[i][j-coin[i-1]] + dp[i-1][j]      // Value of coin[i-1] is less than amount
-    dp[i][j] = dp[i-1][j]                           // Value of coin[i-1] is greater than amount
+    if coin[i-1] < j do
+        1. (i,j-coin[i-1]) + (i-1,j)
+    else do
+        2. (i-1,j)
 ```
-
+DP
+```
+    int coinChange(int coin[n], int amount) {
+        coin.sort()
+        dp[n+1][amount+1]
+        
+        forEach i in [0,n] do
+            forEach j in [0,amount] do
+                // Base Conditions
+                if i*j = 0 do
+                    if i=0 and j=0
+                        dp[i][j] = 1
+                    else if i=0 do
+                        dp[i][j] = 0
+                    else do
+                        dp[i][j] = 1
+                    end
+                    
+                // Choice Diagram
+                else
+                    if coin[i-1] < j do
+                        dp[i][j] = dp[i][j-coin[i-1] + dp[i-1][j]
+                    else do
+                        dp[i][j] = dp[i-1][j]
+                    end
+                end
+            end    
+        end 
+        return dp[n][amount]
+    }
+```
 ### Solutions
 
 DP based solution
@@ -94,31 +128,50 @@ int coinChange(vector<int> coins, int amount) {
 - Other conditions remain same for this as above.
 - We will loop over for each coin.
 
-Base Condition :
+### Pseudocode
+```i stands for the iterator over [0,amount] and j stands for iterator over coin array```
 
-Input: coin = 0
+Base Condition :
+```
+Input: j = 0
 Output: 0
 
-Input: amount = 0
+Input: i = 0
 Output: 1
-
 ```
-    dp[i] = 0       // for each i in [0,amount]
-    dp[0] = 1       // since amount 0 is always possible
+Choice Diagram
 ```
-
-DP Relation
-
+   if i < coin[j] do
+        1. 0
+   else do
+        2. dp[i] + dp[i-coin[j]]
 ```
-    dp[i] = dp[i-coin[j]] + dp[i]
+DP
 ```
-
+    int coinChange(int coin[n], int amount) {
+        // Initialize Array to 0 --- Base Condition 1
+        dp[amount+1] = {0}
+        
+        // Set index 0 to 1 --- Base Condition 2
+        dp[0] = 1
+        
+        // Choice Diagram
+        forEach j in [0,n] do
+            forEach i in [0,amount] do
+                if i >= coin[j] do
+                    dp[i] = dp[i] + dp[i-coin[j]]
+                end
+            end
+        end
+        return dp[amount]
+    }
+```
 ### Solutions
 
 DP based solution
 
 ```cpp
-int change(int amount, vector<int>& coins) {
+int coinChange(vector<int> coins, int amount) {
 
     // Initialize dp array to zero -- Base Condition 1
     vector<int> dp(amount+1, 0);
@@ -126,9 +179,9 @@ int change(int amount, vector<int>& coins) {
     // Set index 0 to 1  -- Base Condition 2
     dp[0] = 1;
 
-    for(int i=0;i<coins.size();i++){
-        for(int j = coins[i]; j <= amount; j++){
-            dp[j] += dp[j-coins[i]];
+    for(int j=0;j<coins.size();j++){
+        for(int i = coins[j]; i <= amount; i++){
+            dp[i] += dp[i-coins[j]];
         }
     }
 
